@@ -13,6 +13,9 @@ function initPage() {
 
             printStashObject(stashObject);
 
+        } else {
+
+            document.querySelector('#intro').classList.toggle('hidden');
         }
     });
 }
@@ -21,6 +24,8 @@ function printStashObject(stashObject) {
 
     // If any of the properties are not set return;
     if (!stashObject.datetime || !stashObject.url || !stashObject.text) {
+
+        document.querySelector('#intro').classList.toggle('hidden');
         return;
     }
 
@@ -28,15 +33,12 @@ function printStashObject(stashObject) {
     var url = stashObject.url;
     var text = stashObject.text;
 
-
-
     document.getElementById("date").innerHTML = timeAgo;
     document.getElementById("url").innerHTML = url;
     document.getElementById("url").href = url;
     document.getElementById("text").innerHTML = text;
 
     // Make sure we remove the intro
-    document.querySelector('#intro').classList.toggle('hidden');
     document.querySelector('#stash').classList.toggle('hidden');
 
 }
