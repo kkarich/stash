@@ -1,0 +1,103 @@
+<head>
+    <title>Stache Capsule</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,800" rel="stylesheet">
+    <style>
+        body {
+            background-color: #35a8df;
+        }
+        img{
+            display: block;
+            margin: auto;
+        }
+        img.mustache {
+            width: 20%;
+        }
+        img.how-to {
+            width: 70%;
+        }
+        
+        @media (min-width: 810px) {
+            .container {
+                width: 750px;
+            }
+        }
+        
+        @media (min-width: 1030px) {
+            .container {
+                width: 970px;
+            }
+        }
+        
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .header-container {
+            display: block;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        #header {
+            color: white;
+            display: inline;
+            font-size: 45px;
+            font-weight: 800;
+        }
+        
+        #date {
+            color: #02202F;
+        }
+        
+        #url {
+            color: #02202F;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 800;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 270px;
+        }
+        
+        p {
+            color: white;
+            font-size: 30px;
+            font-weight: 800;
+            text-align: justify;
+        }
+        
+        .hidden {
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="mustache" src="./icon.png">
+        <div id="stash" class="hidden">
+            <div class="header-container center">
+                <h1 id="header"> Stashed <span id="date">123 Years Ago</span> from <a id="url" href="google.com">www.google.com</a> </h1>
+
+            </div>
+
+            <p id="text" class="center">I will say, as a woman, when you put a mustache on, you find out a lot of things about yourself. Carrie Brownstein</p>
+        </div>
+        <div id="intro">
+            
+            <p class="center">Oops! Nothing stashed yet, lets get started</p>
+            <img class="how-to" src="./howto.gif">
+
+        </div>
+
+
+    </div>
+    <script src="moment.js"></script>
+    <script src="newTab.js"></script>
+    </body
