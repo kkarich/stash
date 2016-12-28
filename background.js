@@ -9,31 +9,29 @@ function stashIt(info, tab) {
     console.log(info, tab)
     // Get the list of items stored today
     chrome.storage.sync.get('stashList', function (data) {
-        var stashList = [];
+        // init stash Object to add to saved stash list
         var todaysDateTime = moment().format();
         var stashObject = { 'url': info.pageUrl, text: info.selectionText, datetime: todaysDateTime };
 
-        // if data exists and todays values are an array set what was in the DB as the stash list
+        // init empty stash list
+        var stashList = [];
+        // if data exists and has a valid stash list property, Use that value instead of the empty array
         if (data && Array.isArray(data['stashList'])) {
             stashList = data['stashList'];
         }
 
-        // Update list to include new object
+        // Update list to include new stash object
         stashList.push(stashObject);
 
-        // Init empty object, used for adding todays values to DB
-        var updateObject = {};
-        updateObject['stashList'] = stashList;
-        
-        // Save it using the Chrome extension storage API.
-        chrome.storage.sync.set(updateObject, function () {
+        // Save updated stash list to chrome storage
+        chrome.storage.sync.set({stashList:stashList}, function () {
             // Notify that we saved.
-            console.log('Settings saved');
+            console.log('Stash saved');
         });
 
     });
 }
-
+// settings for right click menu
 var context = "selection";
 var title = "Stash It";
 var id = chrome.contextMenus.create({
